@@ -1,0 +1,18 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <h1 class="text-center">Exam</h1>
+    <div class="container">
+        <div class="center-block">
+            <ul class="list-group">
+                {% for exam in exam %}
+                    <li class="list-group-item">
+                        {{ exam.name }}                    <a href={{ path('exam_delete', {id: exam.id}) }} class="btn btn-danger">X</a>
+                    </li>
+                {% endfor %}
+            </ul>
+
+            <a style="margin-top: 15px; margin-left: 43%;" href={{ path('exam_add') }} class="btn btn-primary">Add an exam</a>
+        </div>
+    </div>
+{% endblock %}

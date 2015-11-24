@@ -1,0 +1,21 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <h1 class="text-center">Grade</h1>
+    <div class="container">
+        <div class="center-block">
+            <ul class="list-group">
+                {% for grade in grades %}
+                    <li class="list-group-item">
+                        {{ grade.exam.name }} - {{ grade.student.email }} : {{ grade.gradeNumber }}
+                                        <a href={{ path('grade_delete', {id: grade.id}) }} class="btn btn-danger close-right close-right">X</a>
+                    </li>
+                {% endfor %}
+            </ul>
+
+            <a style="margin-top: 15px; margin-left: 43%;" href={{ path('grade_add') }} class="btn btn-primary">Add a grade</a>
+        </div>
+
+    </div>
+
+{% endblock %}
